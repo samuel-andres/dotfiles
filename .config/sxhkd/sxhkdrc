@@ -1,0 +1,25 @@
+############## Volume Control #################
+Insert
+    wpctl set-volume @DEFAULT_SINK@ 5%+
+
+XF86AudioRaiseVolume
+    wpctl set-volume @DEFAULT_SINK@ 5%+
+
+XF86AudioLowerVolume
+    wpctl set-volume @DEFAULT_SINK@ 5%-
+
+XF86AudioMute
+    wpctl set-mute @DEFAULT_SINK@ toggle
+
+############# Brightness Control ##############
+XF86MonBrightnessUp
+    brightnessctl -q set 5%+
+XF86MonBrightnessDown
+    brightnessctl -q set 5%-
+
+# Screenshots
+#alt Shift_L + s
+#    scrot ~/Pictures/Screenshots/%b%d::%H%M%S.png
+alt super + s
+    scrot -s ~/Pictures/Screenshots/%b%d::%H%M%S.png
+
