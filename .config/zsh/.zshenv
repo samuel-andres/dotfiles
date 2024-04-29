@@ -7,10 +7,6 @@ export XINITRC="$XDG_CONFIG_HOME"/X11/xinitrc
 # OMZ
 export ZSH="$XDG_DATA_HOME"/oh-my-zsh
 
-# NVM
-export NVM_DIR="$HOME/.config/nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
-
 export CARGO_HOME="$XDG_DATA_HOME"/cargo
 export GRADLE_USER_HOME="$XDG_DATA_HOME"/gradle
 export PYTHON_HISTORY="$XDG_STATE_HOME"/python/history
@@ -30,7 +26,7 @@ export NODE_REPL_HISTORY=""
 export PATH=$PATH:~/.local/bin
 
 # Add opt packages to the PATH
-export PATH=$PATH:/opt/emojipick:/opt/flipper:/Postman:/opt/android-studio/bin
+export PATH=$PATH:/opt/emojipick:/opt/flipper:opt/Postman:/opt/android-studio/bin
 
 # Add cargo packages to the PATH
 export PATH=$PATH:"$XDG_DATA_HOME"/cargo/bin
