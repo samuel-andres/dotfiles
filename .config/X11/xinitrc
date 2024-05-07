@@ -7,6 +7,6 @@ if xrandr | grep "HDMI1 connected"; then
     xrandr --output HDMI1 --auto --same-as eDP1
 fi
 
-feh --no-fehbg --bg-fill $HOME/Pictures/Backgrounds/current
+feh --no-fehbg --bg-fill --randomize $HOME/Pictures/Backgrounds/
 
 exec dwm

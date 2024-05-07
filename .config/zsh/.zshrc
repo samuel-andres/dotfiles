@@ -1,59 +1,52 @@
 # ~/.config/zsh/.zshrc
 
-# XDG
-export HISTFILE="$XDG_STATE_HOME"/zsh/history
-[ -d "$XDG_CACHE_HOME"/zsh ] || mkdir -p "$XDG_CACHE_HOME"/zsh
-zstyle ':completion:*' cache-path "$XDG_CACHE_HOME"/zsh/zcompcache
+###----------------- HISTORY ----------------------###
+HISTFILE="$XDG_STATE_HOME"/zsh/history
+HISTSIZE=50000
+SAVEHIST=$HISTSIZE
 
-# FNM
+###----------------- OPTIONS ----------------------###
+setopt HIST_EXPIRE_DUPS_FIRST
+setopt HIST_IGNORE_DUPS
+setopt HIST_IGNORE_ALL_DUPS
+setopt HIST_IGNORE_SPACE
+setopt HIST_FIND_NO_DUPS
+setopt HIST_SAVE_NO_DUPS
+
+###------------------ FUNCTIONS -------------------###
+autoload -Uz \
+	compinit \
+	git_prompt_info \
+	wp_out_headset \
+	wp_out_speaker
+compinit
+
+###------------------- PROMPT ---------------------###
+function update_prompt() {
+    PROMPT="%F{blue}%~$(git_prompt_info) %(?.%F{green}.%F{red})%#%f "
+}
+precmd_functions+=(update_prompt)
+
+###------------------ PLUGINS ---------------------###
+zstyle ':completion:*' menu select
+source "$ZDOTDIR/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh"
+source "$ZDOTDIR/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
+
+###------------------- EVALS ----------------------###
 eval "$(fnm env --use-on-cd)"
+eval "$(fzf --zsh)"
 
-# OMZ Config
-ZSH_THEME="sammy"
-CASE_SENSITIVE="false"
-ENABLE_CORRECTION="true"
-DISABLE_LS_COLORS="false"
-plugins=(zsh-autosuggestions fast-syntax-highlighting copyfile history)
-source $ZSH/oh-my-zsh.sh
-unsetopt correct_all
-
-# Aliases
+###------------------ ALIASES ---------------------### 
 alias adb='HOME="$XDG_DATA_HOME"/android adb'
 alias wget=wget --hsts-file="$XDG_DATA_HOME/wget-hsts"
 alias zshconfig="nvim $XDG_CONFIG_HOME/zsh/.zshrc"
-alias atyconfig="nano ~/.config/alacritty/alacritty.toml"
+alias zshreload="source $XDG_CONFIG_HOME/zsh/.zshrc"
 alias sxhkdconfig="nano ~/.config/sxhkd/sxhkdrc"
-alias ohmyzsh="nano ~/.oh-my-zsh"
-alias pps="podman ps"
-alias dc="docker compose"
-alias pc="podman compose"
-alias gitundo="git reset --soft HEAD^"
-alias cls="clear"
-alias untar=tar -xvf
 alias dev="vscli open"
 alias vi="nvim"
 alias vim="nvim"
-alias unmute="wpctl set-default pactl set-sink-mute @DEFAULT_SINK@ toggle"
-alias podman-desktop="nohup flatpak run io.podman_desktop.PodmanDesktop > /dev/null 2>&1 &"
-alias podman-reg-cfg="sudo nano /etc/containers/registries.conf"
-alias podman-api-cfg="sudo nano /usr/lib/systemd/user/podman.service"
-alias podman-api-watch="journalctl --user --follow -u podman.service"
-alias podman-top='for container_id in $(podman ps -q); do
-    container_name=$(podman inspect --format="{{.Name}}" $container_id)
-    container_name=${container_name#\/}
-    echo "Container Name: $container_name"
-    podman top $container_id -eo pid,user,%cpu,%mem,vsz,rss,tty,stat,start,time,command
-    echo "----------------------------------------"
-done'
+alias history="history 1"
 
-# Functions
-wp-out-speaker() {
-    wpctl set-default $(pw-cli i alsa_output.pci-0000_00_1f.3-platform-skl_hda_dsp_generic.HiFi__hw_sofhdadsp__sink | grep -oP 'id: \K\w+')
-}
-
-wp-out-headset() {
-    wpctl set-default $(pw-cli i alsa_output.usb-GN_Netcom_A_S_Jabra_EVOLVE_20_A001DCB0D7460A-00.iec958-stereo | grep -oP 'id: \K\w+')
-}
-
-# faster than neofetch btw
+###---------------- SYSTEM FETCH ------------------### 
 fastfetch
+
