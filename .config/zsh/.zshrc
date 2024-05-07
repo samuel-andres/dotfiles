@@ -2,16 +2,8 @@
 
 ###----------------- HISTORY ----------------------###
 HISTFILE="$XDG_STATE_HOME"/zsh/history
-HISTSIZE=50000
+HISTSIZE=10000000
 SAVEHIST=$HISTSIZE
-
-###----------------- OPTIONS ----------------------###
-setopt HIST_EXPIRE_DUPS_FIRST
-setopt HIST_IGNORE_DUPS
-setopt HIST_IGNORE_ALL_DUPS
-setopt HIST_IGNORE_SPACE
-setopt HIST_FIND_NO_DUPS
-setopt HIST_SAVE_NO_DUPS
 
 ###------------------ FUNCTIONS -------------------###
 autoload -Uz \
@@ -21,6 +13,18 @@ autoload -Uz \
 	wp_out_speaker
 compinit
 
+###----------------- OPTIONS ----------------------###
+zstyle ':completion:*' menu select    # enable tab menu
+setopt extended_history               # record timestamp of command in HISTFILE
+setopt hist_save_no_dups              # older commands that duplicate newer ones are omitted
+setopt hist_expire_dups_first         # delete duplicates first when HISTFILE size exceeds HISTSIZE
+setopt hist_ignore_dups               # dont enter command lines into the HISTFILE if they are dups of the prev event
+setopt hist_ignore_space              # ignore commands that start with space
+setopt hist_verify                    # show command with history expansion to user before running it
+setopt hist_ignore_all_dups           # remove older duplicate command when writing to the HISTFILE
+setopt inc_append_history             # add commands to HISTFILE in order of execution
+_comp_options+=(globdots)             # include hidden files
+
 ###------------------- PROMPT ---------------------###
 function update_prompt() {
     PROMPT="%F{blue}%~$(git_prompt_info) %(?.%F{green}.%F{red})%#%f "
@@ -28,7 +32,6 @@ function update_prompt() {
 precmd_functions+=(update_prompt)
 
 ###------------------ PLUGINS ---------------------###
-zstyle ':completion:*' menu select
 source "$ZDOTDIR/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh"
 source "$ZDOTDIR/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
 
