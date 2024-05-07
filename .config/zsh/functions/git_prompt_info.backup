@@ -15,10 +15,8 @@ function git_prompt_info() {
     color=yellow
     branch="${branch}-"
   fi
+
   if [[ -n "$branch" ]]; then
-    if [ ${#branch} -gt 20 ]; then
-      branch="${branch:0:17}..."
-    fi
     branch=" [%F{${color}}${branch}%F{reset}]"
   fi
   echo "$branch"
