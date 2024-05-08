@@ -1,6 +1,5 @@
 slstatus &
 xcompmgr &
-sxhkd &
 dunst &
 
 if xrandr | grep "HDMI1 connected"; then
