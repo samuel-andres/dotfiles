@@ -9,6 +9,8 @@ export CARGO_HOME="$XDG_DATA_HOME"/cargo
 export GRADLE_USER_HOME="$XDG_DATA_HOME"/gradle
 export PYTHON_HISTORY="$XDG_STATE_HOME"/python/history
 export GNUPGHOME="$XDG_DATA_HOME"/gnupg
+export DOCKER_CONFIG="$XDG_CONFIG_HOME"/docker
+export DOTNET_CLI_HOME="$XDG_DATA_HOME"/dotnet
 
 ###----------------- ANDROID ----------------------###
 export ANDROID_HOME="$XDG_DATA_HOME"/android/sdk

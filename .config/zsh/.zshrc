@@ -42,9 +42,9 @@ eval "$(fzf --zsh)"
 ###------------------ ALIASES ---------------------### 
 alias adb='HOME="$XDG_DATA_HOME"/android adb'
 alias wget=wget --hsts-file="$XDG_DATA_HOME/wget-hsts"
-alias zshcfg="nvim $XDG_CONFIG_HOME/zsh/.zshrc"
+alias zshcfg="nvim $XDG_CONFIG_HOME/zsh/"
 alias zshreload="source $XDG_CONFIG_HOME/zsh/.zshrc"
-alias sxhkdcfg="nano ~/.config/sxhkd/sxhkdrc"
+alias vimcfg="nvim $XDG_CONFIG_HOME/nvim"
 alias dev="vscli open"
 alias vi="nvim"
 alias vim="nvim"
