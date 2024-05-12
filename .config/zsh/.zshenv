@@ -11,6 +11,7 @@ export PYTHON_HISTORY="$XDG_STATE_HOME"/python/history
 export GNUPGHOME="$XDG_DATA_HOME"/gnupg
 export DOCKER_CONFIG="$XDG_CONFIG_HOME"/docker
 export DOTNET_CLI_HOME="$XDG_DATA_HOME"/dotnet
+export PKG_CACHE_PATH="$XDG_CACHE_HOME"/pkg-cache
 
 ###----------------- ANDROID ----------------------###
 export ANDROID_HOME="$XDG_DATA_HOME"/android/sdk
