@@ -1,4 +1,4 @@
-function git_prompt_info() {
+function git-prompt-info() {
   local branch=""
   branch=$(git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/\1/')
   local git_status=$(git status --porcelain 2>/dev/null)

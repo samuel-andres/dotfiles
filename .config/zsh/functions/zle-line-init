@@ -1,0 +1,4 @@
+function zle_line_init() {
+    zle -K viins
+    echo -ne "\e[5 q"
+}
