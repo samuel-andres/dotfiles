@@ -1,3 +1,5 @@
+# ~/.config/dunst/dunstrc
+
 [urgency_low]
     background = "#181825"
     foreground = "#CDD6F4"

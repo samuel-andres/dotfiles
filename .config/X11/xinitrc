@@ -1,3 +1,5 @@
+# ~/.config/X11/xinitrc
+
 slstatus &
 xcompmgr &
 dunst &
