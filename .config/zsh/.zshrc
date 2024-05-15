@@ -74,6 +74,7 @@ alias dev="vscli open"
 alias vi="nvim"
 alias vim="nvim"
 alias history="history 1"
+alias r="ranger"
 
 ###---------------- SYSTEM FETCH ------------------### 
 fastfetch

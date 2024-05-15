@@ -26,6 +26,8 @@ export NODE_REPL_HISTORY=""
 ###------------------- ZSH ------------------------### 
 export FPATH=$FPATH:$ZDOTDIR/functions
 export KEYTIMEOUT=1
+export VISUAL=nvim
+export EDITOR=nvim
 
 ###------------------- PATH -----------------------### 
 export PATH=$PATH:~/.local/bin
