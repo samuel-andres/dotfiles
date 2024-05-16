@@ -67,14 +67,17 @@ eval "$(fzf --zsh)"
 ###------------------ ALIASES ---------------------### 
 alias adb='HOME="$XDG_DATA_HOME"/android adb'
 alias wget=wget --hsts-file="$XDG_DATA_HOME/wget-hsts"
-alias cfz="nvim $XDG_CONFIG_HOME/zsh/"
 alias zshreload="source $XDG_CONFIG_HOME/zsh/.zshrc"
+alias cfz="nvim $XDG_CONFIG_HOME/zsh/"
 alias cfv="nvim $XDG_CONFIG_HOME/nvim"
+alias cfr="nvim $XDG_CONFIG_HOME/ranger"
 alias dev="vscli open"
 alias vi="nvim"
 alias vim="nvim"
 alias history="history 1"
 alias r="ranger"
+alias b=". bwsh"
+alias sr="ffmpeg -f x11grab -s $(awk '/dimensions/ {print $2}' <(xdpyinfo)) -i :0.0 output.mp4"
 
 ###---------------- SYSTEM FETCH ------------------### 
 fastfetch
