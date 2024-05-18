@@ -76,7 +76,7 @@ alias vi="nvim"
 alias vim="nvim"
 alias history="history 1"
 alias r="ranger"
-alias b=". bwsh"
+alias b=". bkekw"
 alias sr="ffmpeg -f x11grab -s $(awk '/dimensions/ {print $2}' <(xdpyinfo)) -i :0.0 output.mp4"
 
 ###---------------- SYSTEM FETCH ------------------### 
