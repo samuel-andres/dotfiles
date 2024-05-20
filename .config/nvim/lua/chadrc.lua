@@ -5,7 +5,7 @@
 local M = {}
 
 M.ui = {
-    theme = "monekai",
+    theme = "solarized_osaka",
     transparency = false,
 
     hl_override = {
@@ -14,7 +14,7 @@ M.ui = {
     },
     statusline = {
         separator_style = "block",
-    }
+    },
 }
 
 return M
