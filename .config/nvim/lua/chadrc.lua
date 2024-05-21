@@ -5,7 +5,7 @@
 local M = {}
 
 M.ui = {
-    theme = "flexoki",
+    theme = "doomchad",
     transparency = true,
 
     hl_override = {
