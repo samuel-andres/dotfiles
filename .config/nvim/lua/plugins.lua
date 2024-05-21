@@ -120,8 +120,18 @@ return {
     {
         "sindrets/diffview.nvim",
         lazy = false,
-        config = function ()
+        config = function()
             require("diffview").setup()
-        end
+        end,
+    },
+    {
+        "hrsh7th/nvim-cmp",
+        config = function(_, opts)
+            local cmp = require "cmp"
+            opts.mapping = cmp.mapping.preset.insert {
+                ["<C-y>"] = cmp.mapping.confirm { select = true },
+            }
+            cmp.setup(opts)
+        end,
     },
 }

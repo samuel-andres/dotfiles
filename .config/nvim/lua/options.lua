@@ -12,7 +12,7 @@ o.expandtab = true
 
 o.smartindent = true
 
-o.wrap = false
+o.wrap = true
 
 o.hlsearch = false
 o.incsearch = true
