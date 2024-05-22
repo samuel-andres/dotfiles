@@ -24,15 +24,19 @@ c.downloads.location.directory = "~/Downloads"
 # ## ------------------ MEDIA ----------------------## #
 c.content.autoplay = False
 
+# ## -------------- TABS MAPPING SWAP --------------## #
+config.bind('J','tab-prev')
+config.bind('K','tab-next')
+
 # ##------------------ UNFOCUS ---------------------## #
 config.bind('<Escape>', 'jseval -q document.activeElement.blur()')
 
 # ##-------------------- UI ------------------------## #
-c.tabs.position = "bottom"
+c.tabs.position = "top"
 c.scrolling.bar = "never"
 c.content.fullscreen.window = True
 c.statusbar.show = "in-mode"
-c.tabs.show = "switching"
+c.tabs.show = "multiple"
 
 # ##------------------- PAGES ----------------------## #
 # new tab
