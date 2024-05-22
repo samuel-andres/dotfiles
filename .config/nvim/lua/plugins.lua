@@ -134,4 +134,20 @@ return {
             cmp.setup(opts)
         end,
     },
+    {
+        "nvim-telescope/telescope.nvim",
+        opts = {
+            pickers = {
+                buffers = {
+                    show_all_buffers = true,
+                    sort_lastused = true,
+                    mappings = {
+                        i = {
+                            ["<c-q>"] = "delete_buffer",
+                        },
+                    },
+                },
+            },
+        },
+    },
 }

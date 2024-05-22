@@ -1,7 +1,7 @@
 require "nvchad.mappings"
 
-local map = vim.keymap.set
+vim.keymap.set("n", ";", ":", { desc = "CMD enter command mode" })
+vim.keymap.set("i", "jk", "<ESC>")
+vim.keymap.set("n", "<leader>od", function() vim.diagnostic.open_float() end )
+vim.keymap.set("n", "<C-e>", "<cmd>Telescope buffers<CR>", { desc = "telescope live grep" })
 
-map("n", ";", ":", { desc = "CMD enter command mode" })
-map("i", "jk", "<ESC>")
-map("n", "<leader>od", function() vim.diagnostic.open_float() end )
