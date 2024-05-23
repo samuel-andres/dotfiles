@@ -43,3 +43,17 @@ vim.keymap.set(
     "<CMD>Oil --float<CR>",
     { desc = "Open parent directory" }
 )
+
+-- custom diffview mappings
+vim.keymap.set(
+    "n",
+    "<leader>dfo",
+    "<cmd>DiffviewOpen<CR>",
+    { desc = "Open diff view" }
+)
+vim.keymap.set(
+    "n",
+    "<leader>dfc",
+    "<cmd>DiffviewClose<CR>",
+    { desc = "Close diff view" }
+)

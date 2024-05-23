@@ -157,4 +157,8 @@ return {
             require("oil").setup()
         end,
     },
+    {
+        "tpope/vim-fugitive",
+        cmd = "Git",
+    }
 }
