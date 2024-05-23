@@ -24,10 +24,6 @@ c.downloads.location.directory = "~/Downloads"
 # ## ------------------ MEDIA ----------------------## #
 c.content.autoplay = False
 
-# ## -------------- TABS MAPPING SWAP --------------## #
-config.bind('J','tab-prev')
-config.bind('K','tab-next')
-
 # ##------------------ UNFOCUS ---------------------## #
 config.bind('<Escape>', 'jseval -q document.activeElement.blur()')
 
