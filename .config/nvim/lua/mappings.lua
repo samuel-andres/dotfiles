@@ -1,6 +1,11 @@
 -- nvchad mappings
 require "nvchad.mappings"
 
+-- remove unused mappings
+vim.keymap.del("n", "<leader>v")
+vim.keymap.del("n", "<leader>h")
+vim.keymap.del("n", "<leader>b")
+
 -- custom core mappings
 vim.keymap.set("n", ";", ":", { desc = "CMD enter command mode" })
 vim.keymap.set("i", "jk", "<ESC>")
@@ -19,9 +24,21 @@ vim.keymap.set(
 -- custom telescope mappings
 vim.keymap.set(
     "n",
-    "<C-e>",
-    "<cmd>Telescope buffers<CR>",
-    { desc = "Telescope buffers" }
+    "<leader>fk",
+    "<cmd>Telescope keymaps<CR>",
+    { desc = "Telescope keymaps" }
+)
+vim.keymap.set(
+    "n",
+    "<leader>fh",
+    "<cmd> Telescope git_signs<CR>",
+    { desc = "Telescope find hunk" }
+)
+vim.keymap.set(
+    "n",
+    "<leader>fd",
+    "<cmd>Telescope git_status<CR>",
+    { desc = "Telescope find diff" }
 )
 
 -- custom oil mappings
@@ -44,4 +61,67 @@ vim.keymap.set(
     "<leader>dfc",
     "<cmd>DiffviewClose<CR>",
     { desc = "Close diff view" }
+)
+
+
+-- custom gitsigns mappings
+vim.keymap.set(
+    "n",
+    "<leader>hp",
+    "<cmd>Gitsigns prev_hunk<CR>",
+    { desc = "Prev hunk" }
+)
+vim.keymap.set(
+    "n",
+    "<leader>hn",
+    "<cmd>Gitsigns next_hunk<CR>",
+    { desc = "Next hunk" }
+)
+vim.keymap.set(
+    "n",
+    "<leader>hv",
+    "<cmd>Gitsigns preview_hunk<CR>",
+    { desc = "Preview hunk" }
+)
+vim.keymap.set(
+    "n",
+    "<leader>lb",
+    "<cmd>Gitsigns blame_line<CR>",
+    { desc = "Blame line" }
+)
+vim.keymap.set(
+    "n",
+    "<leader>hr",
+    "<cmd>Gitsigns reset_hunk<CR>",
+    { desc = "Reset hunk" }
+)
+vim.keymap.set(
+    "n",
+    "<leader>bd",
+    "<cmd>Gitsigns diffthis<CR>",
+    { desc = "Diff buffer" }
+)
+vim.keymap.set(
+    "n",
+    "<leader>bs",
+    "<cmd>Gitsigns stage_buffer<CR>",
+    { desc = "Stage buffer" }
+)
+vim.keymap.set(
+    "n",
+    "<leader>br",
+    "<cmd>Gitsigns reset_buffer<CR>",
+    { desc = "Reset buffer" }
+)
+vim.keymap.set(
+    "n",
+    "<leader>hs",
+    "<cmd>Gitsigns stage_hunk<CR>",
+    { desc = "Stage hunk" }
+)
+vim.keymap.set(
+    "n",
+    "<leader>hu",
+    "<cmd>Gitsigns undo_stage_hunk<CR>",
+    { desc = "Undo stage hunk" }
 )

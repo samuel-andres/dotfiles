@@ -135,6 +135,9 @@ return {
     },
     {
         "nvim-telescope/telescope.nvim",
+        extensions_list = {
+            "git_signs",
+        },
         opts = {
             pickers = {
                 buffers = {
@@ -160,5 +163,24 @@ return {
     {
         "tpope/vim-fugitive",
         cmd = "Git",
-    }
+    },
+    {
+        "lewis6991/gitsigns.nvim",
+        event = "User FilePost",
+        opts = function()
+            return require "nvchad.configs.gitsigns"
+        end,
+        config = function(_, options)
+            dofile(vim.g.base46_cache .. "git")
+            options.on_attach = function() end
+            require("gitsigns").setup(options)
+        end,
+    },
+    {
+        "NvChad/nvterm",
+        enabled = false,
+    },
+    {
+        "radyz/telescope-gitsigns",
+    },
 }
