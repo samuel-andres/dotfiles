@@ -23,18 +23,6 @@ vim.keymap.set(
     "<cmd>Telescope buffers<CR>",
     { desc = "Telescope buffers" }
 )
-vim.keymap.set(
-    "n",
-    "<C-p>",
-    "<cmd>Telescope buffers<CR>",
-    { desc = "Telescope buffers" }
-)
-vim.keymap.set(
-    "n",
-    "<C-n>",
-    "<cmd>Telescope buffers<CR>",
-    { desc = "Telescope buffers" }
-)
 
 -- custom oil mappings
 vim.keymap.set(
