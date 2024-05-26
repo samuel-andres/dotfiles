@@ -16,7 +16,12 @@ vim.keymap.set("i", "jk", "<ESC>")
 vim.keymap.set("n", "<leader>od", function()
     vim.diagnostic.open_float()
 end)
-
+vim.keymap.set(
+    "n",
+    "<leader>hh",
+    "<Cmd>lua vim.lsp.buf.hover()<CR>",
+    { desc = "LSP hover" }
+)
 -- custom nvim-tree mappings
 vim.keymap.set(
     "n",
@@ -66,7 +71,6 @@ vim.keymap.set(
     "<cmd>DiffviewClose<CR>",
     { desc = "Close diff view" }
 )
-
 
 -- custom gitsigns mappings
 vim.keymap.set(

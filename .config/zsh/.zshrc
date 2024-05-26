@@ -80,7 +80,7 @@ alias history="history 1"
 alias r="ranger"
 alias b=". bkekw"
 alias sr="ffmpeg -f x11grab -s $(awk '/dimensions/ {print $2}' <(xdpyinfo)) -i :0.0 output.mp4"
-alias t="tmuxifier"
+
 ###---------------- SYSTEM FETCH ------------------### 
 fastfetch
 
