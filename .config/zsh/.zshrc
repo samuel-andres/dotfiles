@@ -63,6 +63,7 @@ source "$ZDOTDIR/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
 ###------------------- EVALS ----------------------###
 eval "$(fnm env --use-on-cd)"
 eval "$(fzf --zsh)"
+eval "$(tmuxifier init -)"
 
 ###------------------ ALIASES ---------------------### 
 alias adb='HOME="$XDG_DATA_HOME"/android adb'
@@ -71,6 +72,7 @@ alias zshreload="source $XDG_CONFIG_HOME/zsh/.zshrc"
 alias cfz="cd $XDG_CONFIG_HOME/zsh/ && nvim"
 alias cfv="cd $XDG_CONFIG_HOME/nvim && nvim"
 alias cfr="cd $XDG_CONFIG_HOME/ranger && nvim"
+alias cft="cd $XDG_CONFIG_HOME/tmux && nvim"
 alias dev="vscli open"
 alias vi="nvim"
 alias vim="nvim"
@@ -78,7 +80,7 @@ alias history="history 1"
 alias r="ranger"
 alias b=". bkekw"
 alias sr="ffmpeg -f x11grab -s $(awk '/dimensions/ {print $2}' <(xdpyinfo)) -i :0.0 output.mp4"
-
+alias t="tmuxifier"
 ###---------------- SYSTEM FETCH ------------------### 
 fastfetch
 

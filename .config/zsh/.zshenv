@@ -35,4 +35,5 @@ export PATH=$PATH:$ANDROID_HOME/emulator
 export PATH=$PATH:/opt/Postman/app:/opt/android-studio/bin
 export PATH=$PATH:"$XDG_DATA_HOME"/cargo/bin
 export PATH=$PATH:"$XDG_DATA_HOME"/fzf/bin
+export PATH=$PATH:"$HOME/.local/src/tmuxifier/bin"
 
