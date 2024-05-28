@@ -10,3 +10,6 @@
 [submodule ".local/src/slstatus"]
 	path = .local/src/slstatus
 	url = git@github.com:samuel-andres/slstatus.git
+[submodule ".config/nvim"]
+	path = .config/nvim
+	url = git@github.com:samuel-andres/init.lua.git
