@@ -69,3 +69,6 @@ config.bind('yt', ':open --tab https://youtube.com')
 config.bind('ww', ':open --tab https://web.whatsapp.com')
 config.bind('gm', ':open --tab https://mail.google.com')
 config.bind('lb', ':open --tab https://letterboxd.com')
+
+# ##----------------- CLIPBOARD ------------------## #
+c.content.javascript.clipboard = "access-paste"
