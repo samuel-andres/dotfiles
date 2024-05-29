@@ -16,3 +16,6 @@
 [submodule ".local/src/slock"]
 	path = .local/src/slock
 	url = git@github.com:samuel-andres/slock.git
+[submodule ".config/zsh"]
+	path = .config/zsh
+	url = git@github.com:samuel-andres/zsh.git
