@@ -13,3 +13,6 @@
 [submodule ".config/nvim"]
 	path = .config/nvim
 	url = git@github.com:samuel-andres/init.lua.git
+[submodule ".local/src/slock"]
+	path = .local/src/slock
+	url = git@github.com:samuel-andres/slock.git

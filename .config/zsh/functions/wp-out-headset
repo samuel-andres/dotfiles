@@ -1,5 +1,0 @@
-#!/bin/sh
-
-function wp-out-headset() {
-    wpctl set-default $(pw-cli i alsa_output.usb-GN_Netcom_A_S_Jabra_EVOLVE_20_A001DCB0D7460A-00.iec958-stereo | grep -oP 'id: \K\w+')
-}
