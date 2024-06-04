@@ -7,6 +7,10 @@ c = c  # type: ConfigContainer # noqa: F821 pylint: disable=E0602,C0103
 # ##-------------- DISABLE UI CONFIG ---------------## #
 config.load_autoconfig(False)
 
+# ##------------------ GRUVBOX ---------------------## #
+css = '~/.local/src/solarized-everything-css/css/gruvbox/gruvbox-all-sites.css'
+config.bind(',n', f'config-cycle content.user_stylesheets {css} ""')
+
 # ##--------------- FILE MANAGER -------------------## #
 config.set("fileselect.handler", "external")
 config.set(
@@ -36,9 +40,9 @@ c.tabs.show = "multiple"
 
 # ##------------------- PAGES ----------------------## #
 # new tab
-c.url.default_page = "about:blank"
+c.url.default_page = "file:///home/"
 # open browser
-c.url.start_pages = ["about:blank"]
+c.url.start_pages = ["file:///home/"]
 
 # ##------------------ SEARCH ----------------------## #
 c.url.searchengines = {
@@ -72,3 +76,5 @@ config.bind('lb', ':open --tab https://letterboxd.com')
 
 # ##----------------- CLIPBOARD ------------------## #
 c.content.javascript.clipboard = "access-paste"
+
+config.source("gruvbox.py")
