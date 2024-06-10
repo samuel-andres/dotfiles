@@ -10,6 +10,4 @@ fi
 
 feh --no-fehbg --bg-fill --randomize $HOME/Pictures/Backgrounds/
 
-xrdb -load ~/.config/X11/xresources
-
 exec dwm
