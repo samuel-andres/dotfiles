@@ -40,6 +40,7 @@ export PS1='\[${orange}\]\W\[${green}\]$(__git_ps1 ":%s")\[${red}\]\$\[\033[0m\]
 ###------------------- EVALS ----------------------###
 command -v fnm &> /dev/null && eval "$(fnm env --use-on-cd)"
 command -v fzf &> /dev/null && eval "$(fzf --bash)"
+# command -v pyenv &> /dev/null && eval "$(pyenv virtualenv-init -)"
 
 ###------------------ ALIASES ---------------------### 
 alias adb='HOME="$XDG_DATA_HOME"/android adb'
@@ -53,5 +54,10 @@ alias vim="nvim"
 alias r="ranger"
 alias b=". bkekw"
 alias syadm="sudo yadm --yadm-dir /etc/yadm --yadm-data /etc/yadm/data"
-alias lg="lazygit"
+alias gg="lazygit"
 alias cpc="xsel --clipboard --input"
+
+export PATH="$HOME/.pyenv/bin:$PATH"
+eval "$(pyenv init -)"
+eval "$(pyenv virtualenv-init -)"
+echo 'eval "$(pyenv init -)"' >> ~/.profile
