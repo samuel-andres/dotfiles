@@ -29,6 +29,9 @@ export ANDROID_USER_HOME="$XDG_DATA_HOME"/android
 export NODE_OPTIONS="--max-old-space-size=8192"
 export NODE_REPL_HISTORY=""
 
+###----------------- PYENV ------------------------###
+export PYENV_ROOT="$HOME/.pyenv"
+
 ###------------------- PATH -----------------------### 
 export PATH=$PATH:~/.local/bin
 export PATH=$PATH:$ANDROID_HOME/emulator
@@ -36,16 +39,9 @@ export PATH=$PATH:/opt/Postman/app:/opt/android-studio/bin
 export PATH=$PATH:"$XDG_DATA_HOME"/cargo/bin
 export PATH=$PATH:"$XDG_DATA_HOME"/fzf/bin
 export PATH=$PATH:"$HOME/.local/src/tmuxifier/bin"
+export PATH="$PYENV_ROOT/bin:$PATH"
 
 ###----------------- START-X ----------------------###
 if [ -z "$DISPLAY" ] && [ "$XDG_VTNR" = 1 ]; then
   exec startx
 fi
-
-###----------------- PYENV ------------------------###
-echo 'export PYENV_ROOT="$HOME/.pyenv"' >> ~/.bash_profile
-echo '[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"' >> ~/.bash_profile
-echo 'eval "$(pyenv init -)"' >> ~/.bash_profile
-export PYENV_ROOT="$HOME/.pyenv"
-[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
-eval "$(pyenv init -)"
