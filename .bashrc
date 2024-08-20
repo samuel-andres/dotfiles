@@ -27,6 +27,10 @@ unset rc
 set -o vi
 # disable C-s from freezing terminal
 stty -ixon
+# setup shared history for tmux
+export HISTCONTROL=ignoredups:erasedups
+shopt -s histappend
+export PROMPT_COMMAND="history -a; history -c; history -r; $PROMPT_COMMAND"
 # custom keybindings
 bind '"\C-f":"tmux-sessionizer\n"'
 
@@ -41,7 +45,6 @@ export PS1='\[${orange}\]\W\[${green}\]$(__git_ps1 ":%s")\[${red}\]\$\[\033[0m\]
 command -v fnm &> /dev/null && eval "$(fnm env --use-on-cd)"
 command -v fzf &> /dev/null && eval "$(fzf --bash)"
 command -v pyenv &> /dev/null && eval "$(pyenv init -)"
-command -v pyenv &> /dev/null && eval "$(pyenv virtualenv-init -)"
 
 ###------------------ ALIASES ---------------------### 
 alias adb='HOME="$XDG_DATA_HOME"/android adb'
