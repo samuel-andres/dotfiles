@@ -32,6 +32,9 @@ export NODE_REPL_HISTORY=""
 ###----------------- PYENV ------------------------###
 export PYENV_ROOT="$HOME/.pyenv"
 
+###----------------- RIPGREP ----------------------###
+export RIPGREP_CONFIG_PATH="$XDG_CONFIG_HOME"/ripgrep/ripgreprc
+
 ###------------------- PATH -----------------------### 
 export PATH=$PATH:~/.local/bin
 export PATH=$PATH:$ANDROID_HOME/emulator
