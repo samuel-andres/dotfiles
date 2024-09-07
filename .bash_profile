@@ -1,14 +1,11 @@
 # ~/.bash_profile
 
-if [ -f ~/.bashrc ]; then
-    . ~/.bashrc
-fi
-
-###-------------------- X -------------------------###
-export XAUTHORITY="$XDG_RUNTIME_DIR"/Xauthority
-export XINITRC="$XDG_CONFIG_HOME"/X11/xinitrc
-
 ###------------------- XDG ------------------------###
+export XDG_CACHE_HOME=$HOME/.cache
+export XDG_CONFIG_HOME="$HOME/.config"
+export XDG_DATA_HOME=$HOME/.local/share
+export XDG_STATE_HOME=$HOME/.local/state
+export XDG_RUNTIME_DIR=/run/user/$UID
 export CARGO_HOME="$XDG_DATA_HOME"/cargo
 export GRADLE_USER_HOME="$XDG_DATA_HOME"/gradle
 export PYTHON_HISTORY="$XDG_STATE_HOME"/python/history
@@ -16,6 +13,10 @@ export GNUPGHOME="$XDG_DATA_HOME"/gnupg
 export DOCKER_CONFIG="$XDG_CONFIG_HOME"/docker
 export DOTNET_CLI_HOME="$XDG_DATA_HOME"/dotnet
 export PKG_CACHE_PATH="$XDG_CACHE_HOME"/pkg-cache
+
+###-------------------- X -------------------------###
+export XAUTHORITY="$XDG_RUNTIME_DIR"/Xauthority
+export XINITRC="$XDG_CONFIG_HOME"/X11/xinitrc
 
 ###----------------- ANDROID ----------------------###
 export ANDROID_HOME="$XDG_DATA_HOME"/android/sdk
@@ -53,6 +54,11 @@ export HISTSIZE=-1
 export HISTFILESIZE=-1
 export HISTCONTROL=erasedups:ignorespace
 export HISTTIMEFORMAT="%Y-%m-%d %T "
+
+###----------------- INTERACTIVE ------------------###
+if [[ $- == *i* ]]; then
+    . ~/.bashrc
+fi
 
 ###----------------- START-X ----------------------###
 if [ -z "$DISPLAY" ] && [ "$XDG_VTNR" = 1 ]; then
