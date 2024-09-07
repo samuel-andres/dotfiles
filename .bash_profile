@@ -1,7 +1,5 @@
 # ~/.bash_profile
 
-###------------------- SKEL ------------------------###
-# Get the aliases and functions
 if [ -f ~/.bashrc ]; then
     . ~/.bashrc
 fi
@@ -49,6 +47,12 @@ export PATH="$PYENV_ROOT/bin:$PATH"
 
 ###------------------- COLORS ---------------------###
 export LS_COLORS="$(command -v vivid >/dev/null 2>&1 && vivid generate molokai || echo '')"
+
+###------------------- HISTORY ---------------------###
+export HISTSIZE=-1
+export HISTFILESIZE=-1
+export HISTCONTROL=erasedups:ignorespace
+export HISTTIMEFORMAT="%Y-%m-%d %T "
 
 ###----------------- START-X ----------------------###
 if [ -z "$DISPLAY" ] && [ "$XDG_VTNR" = 1 ]; then
