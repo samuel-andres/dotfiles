@@ -34,7 +34,7 @@ export PYENV_ROOT="$HOME/.pyenv"
 ###----------------- RIPGREP ----------------------###
 export RIPGREP_CONFIG_PATH="$XDG_CONFIG_HOME"/ripgrep/ripgreprc
 
-##-#----------------- EDITOR ----------------------###
+###------------------ EDITOR ----------------------###
 export EDITOR=nvim
 
 ###------------------- PATH -----------------------###

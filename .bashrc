@@ -1,12 +1,9 @@
 # ~/.bashrc
 
 ###----------------- OPTIONS ----------------------###
-# vi mode
-set -o vi
-# disable C-s from freezing terminal
-stty -ixon
-# custom keybindings
-bind '"\C-f":"tmux-sessionizer\n"'
+set -o vi # vi mode
+stty -ixon # disable C-s from freezing terminal
+bind '"\C-f":"tmux-sessionizer\n"' # custom keybinding
 
 ###------------------- PROMPT ---------------------###
 source /usr/share/git-core/contrib/completion/git-prompt.sh
