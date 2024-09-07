@@ -35,7 +35,10 @@ export PYENV_ROOT="$HOME/.pyenv"
 ###----------------- RIPGREP ----------------------###
 export RIPGREP_CONFIG_PATH="$XDG_CONFIG_HOME"/ripgrep/ripgreprc
 
-###------------------- PATH -----------------------### 
+##-#----------------- EDITOR ----------------------###
+export EDITOR=nvim
+
+###------------------- PATH -----------------------###
 export PATH=$PATH:~/.local/bin
 export PATH=$PATH:$ANDROID_HOME/emulator
 export PATH=$PATH:/opt/Postman/app:/opt/android-studio/bin
@@ -43,6 +46,9 @@ export PATH=$PATH:"$XDG_DATA_HOME"/cargo/bin
 export PATH=$PATH:"$XDG_DATA_HOME"/fzf/bin
 export PATH=$PATH:"$HOME/.local/src/tmuxifier/bin"
 export PATH="$PYENV_ROOT/bin:$PATH"
+
+###------------------- COLORS ---------------------###
+export LS_COLORS="$(command -v vivid >/dev/null 2>&1 && vivid generate molokai || echo '')"
 
 ###----------------- START-X ----------------------###
 if [ -z "$DISPLAY" ] && [ "$XDG_VTNR" = 1 ]; then

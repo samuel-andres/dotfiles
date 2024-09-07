@@ -7,21 +7,6 @@ c = c  # type: ConfigContainer # noqa: F821 pylint: disable=E0602,C0103
 # ##-------------- DISABLE UI CONFIG ---------------## #
 config.load_autoconfig(False)
 
-# ##------------------ GRUVBOX ---------------------## #
-css = '~/.local/src/solarized-everything-css/css/gruvbox/gruvbox-all-sites.css'
-config.bind(',n', f'config-cycle content.user_stylesheets {css} ""')
-
-# ##--------------- FILE MANAGER -------------------## #
-config.set("fileselect.handler", "external")
-config.set(
-    "fileselect.single_file.command",
-    ['st', '-c', 'Ranger', '-e', 'ranger', '--choosefile', '{}']
-)
-config.set(
-    "fileselect.multiple_files.command",
-    ['st', '-c', 'Ranger', '-e', 'ranger', '--choosefiles', '{}']
-)
-
 # ## ----------------- DOWNLOADS -------------------## #
 c.downloads.location.directory = "~/Downloads"
 
@@ -57,13 +42,6 @@ c.url.searchengines = {
 # ##------------------ SESSION ---------------------## #
 c.auto_save.session = False
 c.session.lazy_restore = True
-
-# ##------------------ ALIASES ---------------------## #
-c.aliases = {
-    **c.aliases,
-    # open current yt video in mpv
-    "mpv": "spawn --userscript ~/.config/qutebrowser/userscripts/view_in_mpv",
-}
 
 # ##----------------- BOOKMARKS --------------------## #
 config.bind('tw', ':open --tab https://twitter.com')

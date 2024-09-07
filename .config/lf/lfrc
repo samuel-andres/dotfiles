@@ -1,0 +1,4 @@
+set previewer ~/.config/lf/previewer
+set cleaner ~/.config/lf/cleaner
+map g. set hidden!
+map D delete

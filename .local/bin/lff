@@ -1,0 +1,20 @@
+#!/bin/sh
+set -euf
+
+if [ -n "${DISPLAY-}" ] && [ -z "${FIFO_UEBERZUG-}" ]; then
+  export FIFO_UEBERZUG="${TMPDIR:-/tmp}/lf-ueberzug-$$"
+
+  cleanup() {
+    exec 3>&-
+    rm -- "$FIFO_UEBERZUG"
+  }
+
+  mkfifo -- "$FIFO_UEBERZUG"
+  while ! ueberzug layer -s <"$FIFO_UEBERZUG"; do :; done &
+  exec 3>"$FIFO_UEBERZUG"
+  trap cleanup EXIT
+
+  lf "$@" 3>&-
+else
+  exec lf "$@"
+fi
