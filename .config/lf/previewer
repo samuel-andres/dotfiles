@@ -22,16 +22,6 @@ batorcat() {
 	fi
 }
 
-glowormdcat() {
-	file="$1"
-	shift
-	if command -v glow > /dev/null 2>&1; then
-		glow "$file"
-	else
-		mdcat "$file"
-	fi
-}
-
 case "$(printf "%s\n" "$(readlink -f "$1")" | awk '{print tolower($0)}')" in
 	*.tgz|*.tar.gz) tar tzf "$1" ;;
 	*.tar.bz2|*.tbz2) tar tjf "$1" ;;
@@ -40,7 +30,7 @@ case "$(printf "%s\n" "$(readlink -f "$1")" | awk '{print tolower($0)}')" in
 	*.zip|*.jar|*.war|*.ear|*.oxt) unzip -l "$1" ;;
 	*.gz) gzip -l "$1" ;;
 	*.rar) unrar l "$1" ;;
-	*.md) glowormdcat "$1";;
+	*.md) glow -s dark "$1";;
 	*.7z) 7z l "$1" ;;
 	*.[1-8]) man "$1" | col -b ;;
 	*.o) nm "$1";;
