@@ -19,6 +19,7 @@ command -v fzf &> /dev/null && eval "$(fzf --bash)"
 command -v pyenv &> /dev/null && eval "$(pyenv init -)"
 
 ###------------------ ALIASES ---------------------### 
+alias vim=nvim
 alias ls="ls --color"
 alias lf="lff"
 alias b=". bkekw"

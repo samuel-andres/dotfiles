@@ -3,3 +3,4 @@ set cleaner ~/.config/lf/cleaner
 set icons
 map g. set hidden!
 map D delete
+map <c-f> $feh --no-fehbg --bg-fill $fx
