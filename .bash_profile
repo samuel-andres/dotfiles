@@ -13,6 +13,9 @@ export GNUPGHOME="$XDG_DATA_HOME"/gnupg
 export DOCKER_CONFIG="$XDG_CONFIG_HOME"/docker
 export DOTNET_CLI_HOME="$XDG_DATA_HOME"/dotnet
 export PKG_CACHE_PATH="$XDG_CACHE_HOME"/pkg-cache
+export DOTNET_CLI_HOME="$XDG_DATA_HOME"/dotnet
+export PYENV_ROOT="$XDG_DATA_HOME"/pyenv
+export HISTFILE="${XDG_STATE_HOME}"/bash/history
 
 ###-------------------- X -------------------------###
 export XAUTHORITY="$XDG_RUNTIME_DIR"/Xauthority
@@ -27,9 +30,6 @@ export ANDROID_USER_HOME="$XDG_DATA_HOME"/android
 ###------------------ NODE ------------------------###
 export NODE_OPTIONS="--max-old-space-size=8192"
 export NODE_REPL_HISTORY=""
-
-###----------------- PYENV ------------------------###
-export PYENV_ROOT="$HOME/.pyenv"
 
 ###----------------- RIPGREP ----------------------###
 export RIPGREP_CONFIG_PATH="$XDG_CONFIG_HOME"/ripgrep/ripgreprc
