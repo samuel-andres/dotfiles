@@ -3,7 +3,7 @@
 ###----------------- OPTIONS ----------------------###
 set -o vi # vi mode
 stty -ixon # disable C-s from freezing terminal
-bind '"\C-f":"tmux-sessionizer\n"' # custom keybinding
+bind -x '"\C-f": tmux-sessionizer' # custom keybinding
 
 ###------------------- PROMPT ---------------------###
 source /usr/share/git-core/contrib/completion/git-prompt.sh
