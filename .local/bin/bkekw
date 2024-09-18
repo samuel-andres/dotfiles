@@ -1,1 +1,23 @@
-/home/samuel/Projects/bkekw/bkekw
+#!/bin/sh
+
+bw unlock --check > /dev/null 2>&1 \
+    || BW_SESSION="$(bw unlock --raw)" \
+    && export BW_SESSION \
+    || return 1
+
+bw list items --search "${1}" \
+    | jq -j '.[] | [.name, .login.password]' \
+    | tr -d '\n["' \
+    | tr ']' '\n' \
+    | tr ',' ':' \
+    | sed 's/^\ \ //g' \
+    | fzf \
+    | tail -1 \
+    | tr -d '"' \
+    | cut -d ':' -f 2 \
+    | sed 's/^\ \ //g' \
+    | xclip -selection clipboard \
+    > /dev/null 2>&1 \
+    || return 1
+
+return 0
