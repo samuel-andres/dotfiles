@@ -1,0 +1,2 @@
+# run `crontab $HOME/.config/cron/crontab` to apply changes
+*/5 * * * * $HOME/.local/bin/battery-alert

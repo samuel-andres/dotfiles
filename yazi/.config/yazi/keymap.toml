@@ -1,0 +1,9 @@
+[[manager.prepend_keymap]]
+on   = [ "b", "s" ]
+run = "shell 'swaybg -i $0 -m fill' --orphan"
+desc = "Set background"
+
+[[manager.prepend_keymap]]
+on   = [ "g", "." ]
+run = "hidden toggle"
+desc = "Toggle hidden files"
