@@ -63,6 +63,10 @@ export LIBSEAT_BACKEND=logind
 ###-------------------- SSH ------------------------###
 export SSH_AUTH_SOCK="$HOME"/.bitwarden-ssh-agent.sock
 
+###--------------------- BW ------------------------###
+export RBW_MENU_COMMAND='wmenu -N "#282828" -n "#ebdbb2" -M "#504945" -m "#bdae93" -S "#98971a" -s "#282828" -f "monospace 12px"'
+# export RBW_MENU_COMMAND="fzf"
+
 ###----------------- INTERACTIVE #------------------###
 if [[ $- == *i* ]]; then
     . ~/.bashrc

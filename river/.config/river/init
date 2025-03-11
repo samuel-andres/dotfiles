@@ -202,3 +202,8 @@ riverctl map normal Super R spawn 'notify-send "wf-recorder" "recording started"
 riverctl map normal Super+Alt R spawn 'wf-recorder -g "$(slurp && notify-send "wf-recorder" "recording started")" -f $HOME/Videos/Recordings/$(date +'%s.mp4')'
 # Stop recording
 riverctl map normal Super Q spawn 'notify-send "wf-recorder" "recording ended" && killall -s SIGINT wf-recorder'
+
+# RBW
+riverctl map normal Super+Shift P spawn 'rbw-menu password | wl-copy'
+riverctl map normal Super+Shift U spawn 'rbw-menu username | wl-copy'
+riverctl map normal Super+Shift C spawn 'rbw-menu code | wl-copy'
