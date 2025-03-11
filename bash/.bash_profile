@@ -60,6 +60,9 @@ export HISTTIMEFORMAT="%Y-%m-%d %T "
 export QT_QPA_PLATFORM=wayland
 export LIBSEAT_BACKEND=logind
 
+###-------------------- SSH ------------------------###
+export SSH_AUTH_SOCK="$HOME"/.bitwarden-ssh-agent.sock
+
 ###----------------- INTERACTIVE #------------------###
 if [[ $- == *i* ]]; then
     . ~/.bashrc

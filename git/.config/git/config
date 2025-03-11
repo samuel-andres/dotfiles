@@ -8,6 +8,7 @@
 [diff]
 	colorMoved = default
 [user]
+        signingkey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIAILrNMgBhVJLk8orKKgsG7OEwNFrK1iw69za7D8loef samuel.andres@vitruvisoftware.com"
 	email = samuel5848@proton.me
 	name = Samuel Andrés
 [init]
@@ -20,3 +21,7 @@
 	smudge = git-lfs smudge -- %f
 	process = git-lfs filter-process
 	required = true
+[gpg]
+        format = ssh
+[commit]
+        gpgsign = true
