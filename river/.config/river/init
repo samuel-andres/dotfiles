@@ -164,7 +164,7 @@ riverctl spawn "$HOME/.config/river/bar"
 riverctl spawn 'swaybg -i $(find $HOME/Pictures/Backgrounds/* -type f | shuf -n1) -m fill'
 
 # Run dunst daemon (notif)
-riverctl spawn 'dunst'
+riverctl spawn 'mako'
 
 # Set keyboard layout
 riverctl keyboard-layout -options caps:swapescape es
@@ -197,7 +197,8 @@ systemctl --user start wireplumber
 riverctl map normal Super+Alt Comma spawn 'waylock'
 
 # Screenshot display recording
-riverctl map normal Super R spawn 'notify-send "wf-recorder" "recording started" && wf-recorder -f $HOME/Videos/Recordings/$(date +'%s.mp4')'
+# riverctl map normal Super R spawn 'notify-send "wf-recorder" "recording started" && wf-recorder -f $HOME/Videos/Recordings/$(date +'%s.mp4')'
+riverctl map normal Super R spawn 'notify-send "wf-recorder" "Recording started on HDMI-A-2" && wf-recorder -o HDMI-A-2 -f $HOME/Videos/Recordings/$(date +%s).mp4'
 # Screenshot area recording
 riverctl map normal Super+Alt R spawn 'wf-recorder -g "$(slurp && notify-send "wf-recorder" "recording started")" -f $HOME/Videos/Recordings/$(date +'%s.mp4')'
 # Stop recording

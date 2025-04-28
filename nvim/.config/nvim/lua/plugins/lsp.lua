@@ -6,13 +6,18 @@ return {
     'williamboman/mason.nvim',
     'williamboman/mason-lspconfig.nvim',
     'WhoIsSethDaniel/mason-tool-installer.nvim',
-    'hrsh7th/cmp-nvim-lsp',
+    'saghen/blink.cmp',
     { 'kevinhwang91/nvim-ufo', dependencies = { 'kevinhwang91/promise-async' } },
   },
   config = function()
-    local capabilities = vim.lsp.protocol.make_client_capabilities()
-    capabilities.textDocument.foldingRange = { dynamicRegistration = false, lineFoldingOnly = true }
-    capabilities = vim.tbl_deep_extend('force', capabilities, require('cmp_nvim_lsp').default_capabilities())
+    local capabilities = require('blink.cmp').get_lsp_capabilities {
+      textDocument = {
+        foldingRange = {
+          lineFoldingOnly = true,
+          dynamicRegistration = false,
+        },
+      },
+    }
 
     local servers = {
       pyright = {
@@ -29,6 +34,8 @@ return {
 
     require('mason-tool-installer').setup { ensure_installed = ensure_installed }
     require('mason-lspconfig').setup {
+      ensure_installed = {},
+      automatic_installation = false,
       handlers = {
         function(server_name)
           local server = servers[server_name] or {}

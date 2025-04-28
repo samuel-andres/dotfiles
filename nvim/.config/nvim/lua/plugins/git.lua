@@ -20,8 +20,6 @@ return {
       map('n', '<leader>hS', gitsigns.stage_buffer)
       map('n', '<leader>hR', gitsigns.reset_buffer)
       map('n', '<leader>hp', gitsigns.preview_hunk)
-      map('n', '<leader>tD', gitsigns.toggle_deleted)
-      map('n', '<leader>hu', gitsigns.undo_stage_hunk)
       map('n', '<leader>tb', gitsigns.toggle_current_line_blame)
       map('n', '<leader>hD', function() gitsigns.diffthis '~' end)
     end,

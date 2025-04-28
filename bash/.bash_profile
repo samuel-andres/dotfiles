@@ -22,10 +22,10 @@ export AWS_SHARED_CREDENTIALS_FILE="$XDG_CONFIG_HOME"/aws/credentials
 export NPM_CONFIG_INIT_MODULE="$XDG_CONFIG_HOME"/npm/config/npm-init.js
 export NPM_CONFIG_CACHE="$XDG_CACHE_HOME"/npm
 export NPM_CONFIG_TMP="$XDG_RUNTIME_DIR"/npm
-export _JAVA_OPTIONS=-Djava.util.prefs.userRoot="$XDG_CONFIG_HOME"/java
+export JAVA_HOME=/usr/lib/jvm/java-17-openjdk
 
 ###----------------- ANDROID ----------------------###
-export ANDROID_HOME="$XDG_DATA_HOME"/android/sdk
+export ANDROID_HOME=~/Android/Sdk
 export ANDROID_SDK_ROOT=$ANDROID_HOME
 export ANDROID_USER_HOME="$XDG_DATA_HOME"/android
 
@@ -49,6 +49,7 @@ export PATH=$PATH:"$XDG_DATA_HOME"/fzf/bin
 export PATH="$PYENV_ROOT/bin:$PATH"
 export PATH=$PATH:/home/linuxbrew/.linuxbrew/bin
 export PATH=$PATH:"$HOME"/.local/share/npm/.npm-global/bin
+export PATH=$PATH:"$JAVA_HOME"/bin
 
 ###------------------- HISTORY ---------------------###
 export HISTSIZE=-1
@@ -61,8 +62,7 @@ export QT_QPA_PLATFORM=wayland
 export LIBSEAT_BACKEND=logind
 
 ###--------------------- BW ------------------------###
-export RBW_MENU_COMMAND='wmenu -N "#282828" -n "#ebdbb2" -M "#504945" -m "#bdae93" -S "#98971a" -s "#282828" -f "monospace 12px"'
-# export RBW_MENU_COMMAND="fzf"
+export RBW_MENU_COMMAND='wmenu -i -N "#282828" -n "#ebdbb2" -M "#504945" -m "#bdae93" -S "#98971a" -s "#282828" -f "monospace 12px"'
 
 ###----------------- INTERACTIVE #------------------###
 if [[ $- == *i* ]]; then
@@ -71,6 +71,7 @@ fi
 
 ###----------------- START-DE ---------------------###
 if [ -z "$WAYLAND_DISPLAY" ] && [ "$XDG_VTNR" = 1 ]; then
+    rbw unlock
     exec river
 fi
 

@@ -20,6 +20,9 @@ command -v fzf &> /dev/null && eval "$(fzf --bash)"
 command -v pyenv &> /dev/null && eval "$(pyenv init -)"
 command -v brew &> /dev/null && eval "$(brew shellenv)"
 
+###------------------- EXPORTS --------------------###
+export GPG_TTY=$(tty)
+
 ###------------------ ALIASES ---------------------###
 alias vim="nvim"
 alias ls="ls --color"
