@@ -10,7 +10,7 @@ return {
     { 'kevinhwang91/nvim-ufo', dependencies = { 'kevinhwang91/promise-async' } },
   },
   config = function()
-    local capabilities = require('blink.cmp').get_lsp_capabilities {
+    local capabilities = {
       textDocument = {
         foldingRange = {
           lineFoldingOnly = true,
@@ -18,6 +18,7 @@ return {
         },
       },
     }
+    capabilities = require('blink.cmp').get_lsp_capabilities(capabilities)
 
     local servers = {
       pyright = {
