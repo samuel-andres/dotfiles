@@ -10,16 +10,6 @@ return {
     { 'kevinhwang91/nvim-ufo', dependencies = { 'kevinhwang91/promise-async' } },
   },
   config = function()
-    local capabilities = {
-      textDocument = {
-        foldingRange = {
-          lineFoldingOnly = true,
-          dynamicRegistration = false,
-        },
-      },
-    }
-    capabilities = require('blink.cmp').get_lsp_capabilities(capabilities)
-
     local servers = {
       pyright = {
         capabilities = { textDocument = { publishDiagnostics = { tagSupport = { valueSet = { 2 } } } } },
@@ -36,11 +26,11 @@ return {
     require('mason-tool-installer').setup { ensure_installed = ensure_installed }
     require('mason-lspconfig').setup {
       ensure_installed = {},
+      automatic_enable = true,
       automatic_installation = false,
       handlers = {
         function(server_name)
           local server = servers[server_name] or {}
-          server.capabilities = vim.tbl_deep_extend('force', {}, capabilities, server.capabilities or {})
           require('lspconfig')[server_name].setup(server)
         end,
       },
