@@ -61,6 +61,9 @@ export HISTTIMEFORMAT="%Y-%m-%d %T "
 export QT_QPA_PLATFORM=wayland
 export LIBSEAT_BACKEND=logind
 
+###------------------- RUST -----------------------###
+. "$XDG_DATA_HOME/cargo/env"
+
 ###--------------------- BW ------------------------###
 export RBW_MENU_COMMAND='wmenu -i -N "#282828" -n "#ebdbb2" -M "#504945" -m "#bdae93" -S "#98971a" -s "#282828" -f "monospace 12px"'
 
