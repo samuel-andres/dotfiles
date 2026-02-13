@@ -208,3 +208,6 @@ riverctl map normal Super Q spawn 'notify-send "wf-recorder" "recording ended" &
 riverctl map normal Super+Shift P spawn 'rbw-menu password | wl-copy'
 riverctl map normal Super+Shift U spawn 'rbw-menu username | wl-copy'
 riverctl map normal Super+Shift C spawn 'rbw-menu code | wl-copy'
+
+# Run drata-agent
+riverctl spawn 'drata-agent --ozone-platform=x11'

@@ -107,6 +107,8 @@ require('blink.cmp').setup {
   fuzzy = { implementation = 'prefer_rust_with_warning' },
 }
 require('copilot').setup {
+  copilot_node_command = vim.fn.expand '$HOME'
+    .. '/.local/share/fnm/node-versions/v25.6.1/installation/bin/node',
   suggestion = { enabled = true, auto_trigger = true, keymap = { accept = '<C-a>' } },
 }
 require('gitsigns').setup {
