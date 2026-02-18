@@ -15,10 +15,10 @@ red=$'\033[38;2;204;102;102m'
 PS1='\[${blue}\]\h:\[${orange}\]\W\[${green}\]$(__git_ps1 ":%s")\[${red}\]\$\[\033[0m\] '
 
 ###------------------- EVALS ----------------------###
+command -v brew &> /dev/null && eval "$(brew shellenv)"
 command -v fnm &> /dev/null && eval "$(fnm env --use-on-cd --shell bash)"
 command -v fzf &> /dev/null && eval "$(fzf --bash)"
 command -v pyenv &> /dev/null && eval "$(pyenv init -)"
-command -v brew &> /dev/null && eval "$(brew shellenv)"
 
 ###------------------- EXPORTS --------------------###
 export GPG_TTY=$(tty)
