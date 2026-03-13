@@ -1,6 +1,5 @@
 local vim = vim
 vim.g.mapleader = ' '
-vim.g.have_nerd_font = true
 vim.opt.number = true
 vim.opt.relativenumber = true
 vim.opt.cursorline = true
@@ -13,19 +12,18 @@ vim.opt.ignorecase = true
 vim.opt.smartcase = true
 vim.opt.undofile = true
 vim.opt.swapfile = false
-vim.opt.backup = false
 vim.opt.writebackup = false
 vim.opt.list = true
 vim.opt.wrap = false
+vim.opt.expandtab = true
+vim.opt.shiftwidth = 2
 vim.opt.listchars = { tab = '» ', trail = '·', nbsp = '␣' }
 vim.opt.colorcolumn = '80'
 vim.opt.guicursor = ''
 vim.opt.scrolloff = 10
 vim.opt.termguicolors = true
-vim.opt.foldcolumn = '0'
 vim.opt.foldlevel = 99
 vim.opt.foldlevelstart = 99
-vim.opt.foldenable = true
 vim.schedule(function() vim.opt.clipboard = 'unnamedplus' end)
 vim.pack.add {
   'https://github.com/stevearc/oil.nvim',
@@ -33,15 +31,11 @@ vim.pack.add {
   'https://github.com/neovim/nvim-lspconfig',
   'https://github.com/mason-org/mason.nvim',
   'https://github.com/mason-org/mason-lspconfig.nvim',
-  'https://github.com/kevinhwang91/nvim-ufo',
-  'https://github.com/kevinhwang91/promise-async',
   'https://github.com/stevearc/conform.nvim',
-  'https://github.com/saghen/blink.cmp',
   'https://github.com/zbirenbaum/copilot.lua',
   'https://github.com/lewis6991/gitsigns.nvim',
   'https://github.com/mfussenegger/nvim-lint',
   'https://github.com/nvim-treesitter/nvim-treesitter',
-  'https://github.com/nvim-treesitter/nvim-treesitter-context',
 }
 require('mini.base16').setup {
   -- stylua: ignore
@@ -62,6 +56,7 @@ require('mini.extra').setup()
 require('mini.notify').setup()
 require('mini.surround').setup()
 require('mini.cursorword').setup()
+require('mini.completion').setup()
 require('oil').setup()
 require('mason').setup()
 require('mason-lspconfig').setup {
@@ -72,7 +67,6 @@ vim.lsp.config('pyright', {
   settings = { python = { analysis = { typeCheckingMode = 'off' } } },
   capabilities = { textDocument = { publishDiagnostics = { tagSupport = { valueSet = { 2 } } } } },
 })
-require('ufo').setup()
 require('conform').setup {
   notify_on_error = false,
   format_on_save = function(bufnr)
@@ -84,6 +78,7 @@ require('conform').setup {
     python = { 'isort', 'black', 'reorder-python-imports' },
     css = { 'prettier' },
     html = { 'prettier' },
+    htmlangular = { 'prettier' },
     javascript = { 'prettier' },
     typescript = { 'prettier' },
     javascriptreact = { 'prettier' },
@@ -100,11 +95,6 @@ require('conform').setup {
       },
     },
   },
-}
-require('blink.cmp').setup {
-  signature = { enabled = true },
-  sources = { default = { 'lsp', 'path', 'snippets' } },
-  fuzzy = { implementation = 'prefer_rust_with_warning' },
 }
 require('copilot').setup {
   copilot_node_command = vim.fn.expand '$HOME'
@@ -141,17 +131,11 @@ require('lint').linters_by_ft = {
   javascriptreact = { 'eslint' },
   typescriptreact = { 'eslint' },
 }
-require('nvim-treesitter.configs').setup {
-  -- stylua: ignore
-  ensure_installed = {
-    'javascript', 'typescript', 'tsx', 'python', 'c', 'bash', 'dockerfile',
-    'vim', 'vimdoc', 'lua', 'luadoc', 'diff', 'html', 'markdown', 'css', 'yaml',
-  },
-  auto_install = true,
-  indent = { enable = true },
-  highlight = { enable = true },
-}
-require('treesitter-context').setup { multiline_threshold = 1 }
+-- stylua: ignore
+require('nvim-treesitter').install({
+  'javascript', 'typescript', 'tsx', 'python', 'c', 'bash', 'dockerfile',
+  'vim', 'vimdoc', 'lua', 'luadoc', 'diff', 'html', 'markdown', 'css', 'yaml',
+})
 vim.keymap.set('n', '<Esc>', ':nohlsearch<cr>')
 vim.keymap.set('n', '<C-w><S-j>', ':resize -5<cr>')
 vim.keymap.set('n', '<C-w><S-k>', ':resize +5<cr>')
@@ -159,8 +143,6 @@ vim.keymap.set('n', '<C-w><S-l>', ':vertical resize -5<cr>')
 vim.keymap.set('n', '<C-w><S-h>', ':vertical resize +5<cr>')
 vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float)
 vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist)
-vim.keymap.set('n', 'd]', function() vim.diagnostic.jump { count = 1, float = true } end)
-vim.keymap.set('n', '[d', function() vim.diagnostic.jump { count = -1, float = true } end)
 vim.keymap.set('n', '<leader>hh', ':Pick help<cr>')
 vim.keymap.set('n', '<leader>sf', ':Pick files<cr>')
 vim.keymap.set('n', '<leader>sk', ':Pick keymaps<cr>')
@@ -186,17 +168,15 @@ vim.api.nvim_create_autocmd('LspAttach', {
     map('gr', ':Pick lsp scope="references"<cr>')
   end,
 })
+vim.api.nvim_create_autocmd('FileType', {
+  callback = function()
+    if not pcall(vim.treesitter.get_parser, 0) then return end
+    vim.treesitter.start()
+    vim.wo.foldmethod = 'expr'
+    vim.wo.foldexpr = 'v:lua.vim.treesitter.foldexpr()'
+    vim.bo.indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
+  end,
+})
 vim.api.nvim_create_autocmd({ 'BufEnter', 'TextChanged', 'InsertLeave' }, {
   callback = function() require('lint').try_lint(nil, { ignore_errors = true }) end,
 })
-vim.api.nvim_create_user_command('FormatDisable', function(args)
-  if args.bang then
-    vim.b.disable_autoformat = true
-  else
-    vim.g.disable_autoformat = true
-  end
-end, { bang = true })
-vim.api.nvim_create_user_command('FormatEnable', function()
-  vim.b.disable_autoformat = false
-  vim.g.disable_autoformat = false
-end, {})
