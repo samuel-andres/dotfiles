@@ -1,0 +1,13 @@
+set preview true
+set drawbox true
+set icons false
+set hidden false
+
+set previewer ~/.config/lf/preview.sh
+set cleaner ~/.config/lf/cleaner.sh
+
+map i $less $f
+map o &xdg-open $f
+map g. set hidden!
+map d
+map dd delete

@@ -1,7 +1,0 @@
-[flavor]
-dark = "gruvbox-dark" # ya pack -a bennyyip/gruvbox-dark
-
-[status]
-separator_open = ""
-separator_close = ""
-
