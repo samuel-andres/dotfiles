@@ -22,9 +22,8 @@ vim.opt.colorcolumn = '80'
 vim.opt.guicursor = ''
 vim.opt.scrolloff = 10
 vim.opt.termguicolors = true
-vim.opt.foldlevel = 99
 vim.opt.foldlevelstart = 99
-vim.schedule(function() vim.opt.clipboard = 'unnamedplus' end)
+vim.opt.clipboard = 'unnamedplus'
 vim.pack.add {
   'https://github.com/stevearc/oil.nvim',
   'https://github.com/nvim-mini/mini.nvim',

@@ -163,7 +163,7 @@ riverctl spawn "$HOME/.config/river/bar"
 # Set background
 riverctl spawn 'swaybg -i $(find $HOME/Pictures/Backgrounds/* -type f | shuf -n1) -m fill'
 
-# Run dunst daemon (notif)
+# Notification daemon
 riverctl spawn 'mako'
 
 # Set keyboard layout

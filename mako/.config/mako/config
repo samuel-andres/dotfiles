@@ -1,0 +1,41 @@
+# Default style (normal urgency)
+font=Monospace 10
+width=220
+height=120
+margin=25,20
+padding=8
+border-size=2
+default-timeout=10000
+max-icon-size=96
+anchor=top-right
+background-color=#458588
+text-color=#1d2021
+border-color=#689d6a
+
+# Low urgency
+[urgency=low]
+background-color=#282828
+text-color=#928374
+border-color=#83a598
+default-timeout=4000
+
+# Critical urgency
+[urgency=critical]
+background-color=#1d2021
+text-color=#ebdbb2
+border-color=#fb4934
+default-timeout=0
+
+# Spotify (example matching app name)
+[app-name=Spotify]
+background-color=#1d2021
+text-color=#ebdbb2
+border-color=#1db954
+default-timeout=5000
+
+# ncspot
+[app-name=ncspot]
+background-color=#1d2021
+text-color=#ebdbb2
+border-color=#1db954
+default-timeout=5000

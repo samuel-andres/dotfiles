@@ -28,3 +28,6 @@ alias vim="nvim"
 alias ls="ls --color"
 alias adb='HOME="$XDG_DATA_HOME"/android adb'
 alias stow="stow -d $HOME/.dotfiles"
+
+# opencode
+export PATH=/home/samuel/.opencode/bin:$PATH

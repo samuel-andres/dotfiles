@@ -25,3 +25,9 @@
     gpgsign = true
 [tag]
     gpgsign = true
+[merge]
+	tool = nvimdiff
+[mergetool "nvimdiff"]
+	layout = LOCAL,BASE,REMOTE / MERGED
+[mergetool]
+	keepBackup = false
