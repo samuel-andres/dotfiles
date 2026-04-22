@@ -50,7 +50,7 @@ colors.setup()
 colors.get_colorscheme():add_transparency():apply()
 require('mini.pick').setup()
 require('mini.icons').setup()
-require('mini.pairs').setup()
+-- require('mini.pairs').setup()
 require('mini.extra').setup()
 require('mini.notify').setup()
 require('mini.surround').setup()
@@ -59,7 +59,15 @@ require('mini.completion').setup()
 require('oil').setup()
 require('mason').setup()
 require('mason-lspconfig').setup {
-  ensure_installed = { 'pyright', 'lua_ls', 'html', 'cssls', 'ts_ls', 'dockerls', 'angularls' },
+  ensure_installed = {
+    'pyright',
+    'lua_ls',
+    'html',
+    'cssls',
+    'ts_ls',
+    'dockerls',
+    'rust_analyzer',
+  },
 }
 vim.lsp.enable 'pyright'
 vim.lsp.config('pyright', {
@@ -73,6 +81,7 @@ require('conform').setup {
     return { timeout_ms = 2000, lsp_format = 'fallback' }
   end,
   formatters_by_ft = {
+    rust = { 'rustfmt' },
     lua = { 'stylua' },
     python = { 'isort', 'black', 'reorder-python-imports' },
     css = { 'prettier' },
@@ -134,6 +143,7 @@ require('lint').linters_by_ft = {
 require('nvim-treesitter').install({
   'javascript', 'typescript', 'tsx', 'python', 'c', 'bash', 'dockerfile',
   'vim', 'vimdoc', 'lua', 'luadoc', 'diff', 'html', 'markdown', 'css', 'yaml',
+  'rust',
 })
 vim.keymap.set('n', '<Esc>', ':nohlsearch<cr>')
 vim.keymap.set('n', '<C-w><S-j>', ':resize -5<cr>')
