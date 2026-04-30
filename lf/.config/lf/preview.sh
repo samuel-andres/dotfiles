@@ -8,7 +8,7 @@ mime=$(file --mime-type -Lb "$file")
 
 case "$mime" in
     image/*)
-        chafa --size=${width}x${height} "$file"
+        chafa -f sixel --size=${width}x${height} "$file"
         ;;
     text/*)
         sed -n '1,200p' "$file"
