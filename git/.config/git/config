@@ -1,21 +1,9 @@
-; [core]
-; 	pager = delta
-; [interactive]
-; 	diffFilter = delta --color-only
-; [delta]
-; 	navigate = true
-; 	line-numbers = true
-[diff]
-	colorMoved = default
 [user]
 	email = samuel5848@proton.me
 	name = Samuel Andrés
 	signingkey = 6E41D7E1A8A1EF8F
 [init]
 	defaultBranch = main
-[cola]
-	theme = flat-dark-blue
-	icontheme = dark
 [filter "lfs"]
 	clean = git-lfs clean -- %f
 	smudge = git-lfs smudge -- %f
