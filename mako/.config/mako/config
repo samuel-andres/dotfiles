@@ -26,13 +26,6 @@ text-color=#ebdbb2
 border-color=#fb4934
 default-timeout=0
 
-# Spotify (example matching app name)
-[app-name=Spotify]
-background-color=#1d2021
-text-color=#ebdbb2
-border-color=#1db954
-default-timeout=5000
-
 # ncspot
 [app-name=ncspot]
 background-color=#1d2021
