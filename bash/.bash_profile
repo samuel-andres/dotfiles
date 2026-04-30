@@ -67,12 +67,12 @@ export LIBSEAT_BACKEND=logind
 ###--------------------- BW ------------------------###
 export RBW_MENU_COMMAND='wmenu -i -N "#282828" -n "#ebdbb2" -M "#504945" -m "#bdae93" -S "#98971a" -s "#282828" -f "monospace 12px"'
 
-###----------------- INTERACTIVE #------------------###
+###----------------- INTERACTIVE -------------------###
 if [[ $- == *i* ]]; then
     . ~/.bashrc
 fi
 
-###----------------- START-DE ---------------------###
+###----------------- START-WM ---------------------###
 if [ -z "$WAYLAND_DISPLAY" ] && [ "$XDG_VTNR" = 1 ]; then
     rbw unlock
     exec river
