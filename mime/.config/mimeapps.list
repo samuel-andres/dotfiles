@@ -1,13 +1,11 @@
-
 [Default Applications]
 image/png=imv.desktop
 image/gif=imv.desktop
 image/bmp=imv.desktop
 image/jpeg=imv.desktop
-text/html=google-chrome.desktop
-x-scheme-handler/http=google-chrome.desktop
-x-scheme-handler/https=google-chrome.desktop
-x-scheme-handler/about=google-chrome.desktop
-x-scheme-handler/unknown=google-chrome.desktop
-x-scheme-handler/postman=Postman.desktop
-x-scheme-handler/mailto=google-chrome.desktop
+text/html=firefox-nightly.desktop
+x-scheme-handler/http=firefox-nightly.desktop
+x-scheme-handler/https=firefox-nightly.desktop
+x-scheme-handler/about=firefox-nightly.desktop
+x-scheme-handler/unknown=firefox-nightly.desktop
+x-scheme-handler/mailto=firefox-nightly.desktop
