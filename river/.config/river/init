@@ -134,7 +134,7 @@ do
     riverctl map $mode Super p spawn 'wmenu-run -N "#282828" -n "#ebdbb2" -M "#504945" -m "#bdae93" -S "#98971a" -s "#282828" -f "monospace 12px"'
 
     # Open browser
-    riverctl map $mode Super w spawn 'zen-twilight'
+    riverctl map $mode Super w spawn 'helium'
 done
 
 # Set background and border color
@@ -189,9 +189,10 @@ riverctl map normal Super S spawn "grim $HOME/Pictures/Screenshots/$(date +'%s.p
 riverctl map normal Super+Alt S spawn 'grim -g "$(slurp)" $HOME/Pictures/Screenshots/$(date +'%s.png')'
 
 # Fix screen-sharing
-systemctl --user stop pipewire wireplumber xdg-desktop-portal xdg-desktop-portal-wlr
+systemctl --user start graphical-session.target
+systemctl --user import-environment WAYLAND_DISPLAY XDG_CURRENT_DESKTOP
 dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=river
-systemctl --user start wireplumber
+systemctl --user restart xdg-desktop-portal
 
 # Lock screen
 riverctl map normal Super+Alt Comma spawn 'waylock'
