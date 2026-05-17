@@ -137,6 +137,9 @@ do
     riverctl map $mode Super w spawn 'helium'
 done
 
+# Set border width
+riverctl border-width 0
+
 # Set background and border color
 riverctl background-color 0x282828
 riverctl border-color-focused 0x282828
@@ -154,17 +157,14 @@ riverctl rule-add -app-id "bar" csd
 # Set the default layout generator to be rivertile and start it.
 # River will send the process group of the init executable SIGTERM on exit.
 riverctl default-layout rivertile
-rivertile -view-padding 6 -outer-padding 6 &
+rivertile -view-padding 0 -outer-padding 0 &
 
 # Set up status+bar
 riverctl spawn "$HOME/.config/river/status"
 riverctl spawn "$HOME/.config/river/bar"
 
-# Set background
-riverctl spawn 'swaybg -i $(find $HOME/Pictures/Backgrounds/* -type f | shuf -n1) -m fill'
-
 # Notification daemon
-riverctl spawn 'mako'
+riverctl spawn 'dunst'
 
 # Set keyboard layout
 riverctl keyboard-layout -options caps:swapescape es
